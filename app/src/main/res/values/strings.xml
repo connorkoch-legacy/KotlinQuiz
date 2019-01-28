@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Kotlin Quiz</string>
+    <string name="score">Score: </string>
+    <string name="boolTrue">True</string>
+    <string name="boolFalse">False</string>
+    <string name="prev">Previous</string>
+    <string name="next">Next</string>
+    <string name="question1">Kotlin requires semi-colons at the end of every statement.</string>
+    <string name="question2">Adults have fewer bones than babies do.</string>
+    <string name="question3">There are more cells of bacteria in your body than there are human cells.</string>
+    <string name="question4">It costs the U.S. Mint more to make pennies and nickels than the coins are actually worth.</string>
+    <string name="correct_toast">Your knowledge is undoubtedly top notch!</string>
+    <string name="incorrect_toast">You must consult the elders for additional training.</string>
+</resources>
