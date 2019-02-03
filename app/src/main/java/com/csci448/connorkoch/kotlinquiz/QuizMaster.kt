@@ -3,7 +3,7 @@ package com.csci448.connorkoch.kotlinquiz
 object QuizMaster {
     private val questionBank: MutableList<Question> = mutableListOf()
     var currentScore = 0
-    private var currentQuestionIndex = 0
+    var currentQuestionIndex = 0
 
     init {
         questionBank.add(Question(R.string.question1, false))
