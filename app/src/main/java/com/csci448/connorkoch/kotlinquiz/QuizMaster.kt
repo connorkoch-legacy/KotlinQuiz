@@ -30,5 +30,4 @@ object QuizMaster {
         if(ans == getCurrentAnswer()) currentScore++
         return ans == getCurrentAnswer()
     }
-
 }

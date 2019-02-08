@@ -92,8 +92,20 @@
 
         <Button
             android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/prev_button"
+            android:text="Cheat!"
+            android:textSize="24sp"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/next_button"
+            android:id="@+id/cheat_button"
             android:text="@string/next"
             android:textSize="24sp"
             android:background="@color/blue"

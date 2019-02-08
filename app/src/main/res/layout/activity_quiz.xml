@@ -58,6 +58,7 @@
             android:background="@color/blue"
             android:textColor="@color/white"
             android:layout_marginRight="25dp"
+            android:padding="10dp"
             />
 
         <Button
@@ -68,6 +69,7 @@
             android:textSize="24sp"
             android:background="@color/blue"
             android:textColor="@color/white"
+            android:padding="10dp"
             />
     </LinearLayout>
 
@@ -86,7 +88,8 @@
             android:textSize="24sp"
             android:background="@color/blue"
             android:textColor="@color/white"
-            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:padding="10dp"
             />
 
         <Button
@@ -97,7 +100,22 @@
             android:textSize="24sp"
             android:background="@color/blue"
             android:textColor="@color/white"
+            android:padding="10dp"
             />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/cheat_button"
+        android:text="Cheat!"
+        android:textSize="24sp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        />
+
 
 </LinearLayout>

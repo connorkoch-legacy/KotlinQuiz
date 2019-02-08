@@ -11,4 +11,7 @@
     <string name="question4">It costs the U.S. Mint more to make pennies and nickels than the coins are actually worth.</string>
     <string name="correct_toast">Your knowledge is undoubtedly top notch!</string>
     <string name="incorrect_toast">You must consult the elders for additional training.</string>
+    <string name="cheatText">Are you really sure you want to cheat?</string>
+    <string name="showAnsButton">SHOW THE ANSWER</string>
+    <string name="cheatAns">The answer is</string>
 </resources>

@@ -1,23 +1,30 @@
 package com.csci448.connorkoch.kotlinquiz
 
+import android.app.Activity
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_quiz.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var cheated = false
+
     companion object {
         private const val LOG_TAG = "448.MainActivity"
         private const val CURRENT_SCORE_KEY = "CURRENT_SCORE_KEY"
         private const val CURRENT_QUESTION_KEY = "CURRENT_QUESTION_KEY"
+        private const val REQUEST_CODE_CHEAT = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(LOG_TAG, "MainActivity onCreate() called")
         setContentView(R.layout.activity_quiz)
+        cheated = false
 
         if( savedInstanceState != null ) {
             Log.d(LOG_TAG, "savedInstanceState is not null")
@@ -32,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         false_button.setOnClickListener { checkAnswer(false) }
         prev_button.setOnClickListener { moveToQuestion(1) }
         next_button.setOnClickListener { moveToQuestion(-1) }
+        cheat_button.setOnClickListener { launchCheat() }
     }
 
     override fun onStart(){
@@ -82,13 +90,28 @@ class MainActivity : AppCompatActivity() {
         score_text_view.text = QuizMaster.currentScore.toString()
     }
 
-    private fun checkAnswer(ans: Boolean){
-        if(QuizMaster.isAnswerCorrect(ans)){
-            Toast.makeText(baseContext, R.string.correct_toast, Toast.LENGTH_SHORT).show()
-            setCurrentScoreText()
+    private fun checkAnswer(ans: Boolean) {
+        if (cheated) Toast.makeText(baseContext, "Cheaters never prosper.", Toast.LENGTH_SHORT).show()
+        else {
         }
-        else Toast.makeText(baseContext,
-                R.string.incorrect_toast, Toast.LENGTH_SHORT).show()
+            if (QuizMaster.isAnswerCorrect(ans)) {
+                Toast.makeText(baseContext, R.string.correct_toast, Toast.LENGTH_SHORT).show()
+                setCurrentScoreText()
+            } else Toast.makeText(baseContext,
+                    R.string.incorrect_toast, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun launchCheat(){
+        val intent = CheatActivity.createIntent(baseContext, QuizMaster.getCurrentAnswer())
+        startActivityForResult(intent, REQUEST_CODE_CHEAT)
+    }
+
+    override fun onActivityResult(requestCode: Int, statusCode: Int, data: Intent?) {
+        Log.d(LOG_TAG, "MainActivity onActivityResult() called")
+        if(statusCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_CHEAT && data != null){
+            cheated = intent.getBooleanExtra(CheatActivity.getCheatedString(), false)
+        }
+        super.onActivityResult(requestCode, statusCode, data)
     }
 
 }
